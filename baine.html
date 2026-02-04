@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Friday 13th Dinner?</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background: linear-gradient(180deg, #e8e2ff, #ffd6ee);
+      text-align: center;
+      min-height: 100vh;
+    }
+
+    h1 {
+      font-size: 1.4rem;
+      margin: 12px 8px 0 8px;
+    }
+
+    h2 { font-size: 1.3rem; margin: 10px 0; }
+
+    p { font-size: 1rem; margin: 8px 0 12px 0; padding: 0 10px; }
+
+    .page {
+      display: none;
+      padding: 16px 12px 24px 12px;
+      max-width: 100%;
+      margin: 0 auto;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .page.active { display: block; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    img {
+      width: 100%;
+      max-width: 420px;
+      height: auto;
+      border-radius: 14px;
+      margin: 12px auto;
+      display: block;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .nav-btn {
+      background: #7a5cff;
+      color: white;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 24px;
+      cursor: pointer;
+      margin: 6px;
+      font-size: 15px;
+      width: min(90%, 320px);
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .nav-btn:active { transform: scale(0.98); }
+
+    #final-container {
+      position: relative;
+      height: 260px;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    #yesBtn, #noBtn {
+      font-size: 16px;
+      padding: 10px 18px;
+      border-radius: 22px;
+      border: none;
+      cursor: pointer;
+      position: absolute;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    #yesBtn {
+      background: #ff4d8d;
+      color: white;
+      transition: all 0.15s ease;
+    }
+
+    #noBtn {
+      background: #ddd;
+      color: black;
+    }
+
+    .safe-area {
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+  </style>
+</head>
+<body>
+<div class="safe-area">
+
+<h1>🍕 A Dinner Mission for My Sali Kiritka 🍕</h1>
+
+<!-- REPLACE THIS WITH YOUR SONG LATER -->
+<audio id="bg-music" loop>
+  <source src="kath-bush.mp3" type="audio/mpeg" />
+</audio>
+
+<!-- PAGE 1 -->
+<div class="page active" id="p1">
+  <h2>Hey Kritika 😎</h2>
+  <p>Your 5th funny Vinaju has a very serious (and slightly dramatic) question…</p>
+  <img src="https://drive.google.com/thumbnail?id=1h5vYXEih01IZdZO33ory8zKWsmElt8ZI&sz=w1000" alt="Photo 1" />
+  <button class="nav-btn" onclick="startMusicAndGo(2)">Start the mission</button>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page" id="p2">
+  <h2>Question 1</h2>
+  <p>If I were your Vinaju in the Stranger Things universe, would I be…?</p>
+  <img src="https://drive.google.com/thumbnail?id=1g4eKVRd7pAX2YMQdLtpI4uvbNnGDzQFw&sz=w1000" alt="Photo 2" />
+  <button class="nav-btn" onclick="goTo(3)">Eleven (mysterious but cool)</button>
+  <button class="nav-btn" onclick="goTo(3)">Steve Harrington (big brother energy)</button>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page" id="p3">
+  <h2>Question 2</h2>
+  <p>If this dinner was a “Stranger Things” mission, should it be called…?</p>
+  <img src="https://drive.google.com/thumbnail?id=1C9VW1P2J623HCEASRbyNzC1L_MAJQ-yZ&sz=w1000" alt="Photo 3" />
+  <button class="nav-btn" onclick="goTo(4)">Operation Pizza & Chaos</button>
+  <button class="nav-btn" onclick="goTo(4)">Mission: Keep Sali Happy</button>
+</div>
+
+<!-- PAGE 4 -->
+<div class="page" id="p4">
+  <h2>Question 3</h2>
+  <p>If your Vinaju was a superhero, would he be…?</p>
+  <img src="https://drive.google.com/thumbnail?id=1PgnsT_U-a6n84C7J7ifZlk1oNXb4qVV_&sz=w1000" alt="Photo 4" />
+  <button class="nav-btn" onclick="goTo(5)">Captain Dinner</button>
+  <button class="nav-btn" onclick="goTo(5)">Doctor Snacks</button>
+</div>
+
+<!-- PAGE 5 -->
+<div class="page" id="p5">
+  <h2>Question 4</h2>
+  <p>If you had to describe our Sali–Vinaju bond in one word, would it be…?</p>
+  <img src="https://drive.google.com/thumbnail?id=1TnKfKhtMMlqg1HTIG11xYEXD5-jWJLQq&sz=w1000" alt="Photo 5" />
+  <button class="nav-btn" onclick="goTo(6)">Chaotic</button>
+  <button class="nav-btn" onclick="goTo(6)">Legendary</button>
+</div>
+
+<!-- PAGE 6 -->
+<div class="page" id="p6">
+  <h2>Question 5</h2>
+  <p>If Friday the 13th was a movie, would our dinner be…?</p>
+  <img src="https://drive.google.com/thumbnail?id=13kB5EbKJX-EnAaPpZVyfq2-iKiARaBnF&sz=w1000" alt="Photo 6" />
+  <button class="nav-btn" onclick="goTo(7)">Scary but yummy</button>
+  <button class="nav-btn" onclick="goTo(7)">Funny but delicious</button>
+</div>
+
+<!-- FINAL PAGE (p7) -->
+<div class="page" id="p7">
+  <h2>Big Question 🍽️</h2>
+  <p>Kritika will you let your Vinaju take you to dinner on Friday the 13th after school?</p>
+  <img src="https://drive.google.com/thumbnail?id=1V1sL9YITpYpJwKv7VpN6cWHqfZa37KDu&sz=w1000" alt="Photo 7" />
+
+  <div id="final-container">
+    <button id="yesBtn">Yes, Vinaju 💖</button>
+    <button id="noBtn">Nope 😜</button>
+  </div>
+</div>
+
+</div>
+
+<script>
+  function startMusicAndGo(n) {
+    const audio = document.getElementById('bg-music');
+    audio.play().catch(() => {});
+    goTo(n);
+  }
+
+  function goTo(n) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('p' + n).classList.add('active');
+
+    if (n === 7) {
+      setTimeout(setInitialPositions, 50);
+    }
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  const yesBtn = document.getElementById('yesBtn');
+  const noBtn = document.getElementById('noBtn');
+  const container = document.getElementById('final-container');
+
+  let moveCount = 0;
+
+  function setInitialPositions() {
+    const cw = container.offsetWidth;
+    const ch = container.offsetHeight;
+
+    yesBtn.style.left = (cw * 0.35) + 'px';
+    yesBtn.style.top = (ch * 0.35) + 'px';
+
+    noBtn.style.left = (cw * 0.55) + 'px';
+    noBtn.style.top = (ch * 0.35) + 'px';
+  }
+
+  setInitialPositions();
+  window.addEventListener('resize', setInitialPositions);
+
+  function moveYes() {
+    moveCount++;
+
+    const maxX = container.offsetWidth - yesBtn.offsetWidth - 8;
+    const maxY = container.offsetHeight - yesBtn.offsetHeight - 8;
+
+    const newX = Math.random() * maxX;
+    const newY = Math.random() * maxY;
+
+    yesBtn.style.left = newX + 'px';
+    yesBtn.style.top = newY + 'px';
+
+    if (moveCount >= 10) {
+      setTimeout(() => {
+        alert("YAY! 🍕 Your Vinaju is taking you to dinner on Friday the 13th!");
+      }, 200);
+    }
+  }
+
+  yesBtn.addEventListener('mouseover', moveYes);
+  yesBtn.addEventListener('touchstart', moveYes);
+
+  function hideNo() {
+    noBtn.style.opacity = '0';
+    setTimeout(() => { noBtn.style.display = 'none'; }, 120);
+  }
+
+  noBtn.addEventListener('mouseover', hideNo);
+  noBtn.addEventListener('touchstart', hideNo);
+</script>
+
+</body>
+</html>
